@@ -1,0 +1,35 @@
+nominee1=input("Enter the Name of first contestant:")
+nominee2=input("Enter the Name of second contestant:")
+
+nom1votes=0
+nom2votes=0
+
+voteid = [1,2,3,4,5,6,7,8,9,10]
+
+numofvoter=len(voteid)
+
+while True:
+    if voteid==[]:
+        print("Voting session completed.")
+        if nom1votes>nom2votes:
+            percent=(nom1votes/numofvoter)*100
+            print(nominee1+"has won with"+percent+"votes")
+            break
+    elif nom2votes>nom1votes:
+            percent=(nom2votes/numofvoter)*100
+            print(nominee2+"has won with"+percent+"votes")
+            break
+    else:
+        voter= int(input("Enter your voter id number:"))
+        if voter in voteid:
+            print("You are a Voter")
+            voteid.remove(voter)
+            vote = int(input("Will you vote for nominee 1 or 2?"))
+            if vote==1:
+                nom1votes+=1 
+                print("Thank you for Voting")
+            elif vote==2:
+                nom2votes+=1 
+                print("Thank you for voting")
+        else:
+            print("You are not a voter in this Area or you have already used your voting oppurtunity once.")
